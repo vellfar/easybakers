@@ -1,0 +1,286 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF -8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Easy Bakers Ug | The Bread and Cake Shop</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link href="https://fonts.googleapis.com/css2?
+        family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+
+        <!-- Header -->
+        <div class="header">
+            <div class="navbar"> 
+                <div class="logo" style="display: flex; justify-content: center; align-items: center;">
+                    <img src="images/logo.png" width="40px" height="40px" style="margin: 0 2px;">
+                    <h2 style="color: #555;">Easy Bakers and Confectioners LTD</h2>
+                </div>
+                
+                <nav>
+                    <ul id="MenuItems">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/products">Products</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <i class="fa-solid fa-bars" onclick="menutoggle()"></i>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-2">
+                        <h1>The Bread and Cake Shop!</h1>
+                        <p>
+                           Where Quality Meets Sweetness. Baking smiles since 2001.
+                        </p>
+                        <a href="/products" class="btn">Explore Now &#8594;</a>
+                    </div>
+                    <div class="col-2">
+                        <img src="images/GODS9947.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- featured categories -->
+        <div class="categories">
+            <div class="small-container">
+                <h2 class="title">Our Product Categories</h2>
+                <div class="row">
+                    <div class="col-3" style="background-color: #ece2e2;">
+                        <img src="images/IMG_0088.png" alt="Category 1">
+                        <div class="category-name"><strong>Bread</strong></div>
+                    </div>
+                    <div class="col-3" style="background-color: #777;">
+                        <img src="images/IMG_0001_kO8a6zz.png" alt="Category 2">
+                        <div class="category-name"><strong>Cake</strong></div>
+                    </div>
+                    <div class="col-3" style="background-color: #f6c6b2f3;">
+                        <img src="images/IMG_0123.png" alt="Category 3">
+                        <div class="category-name"><strong>Pastries</strong></div>
+                    </div>
+                    <div class="col-3" style="background-color: #555;">
+                        <img src="images/IMG_0110.png" alt="Category 4">
+                        <div class="category-name"><strong>Doughnuts</strong></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- featured products -->
+        <div class="small-container">
+            <h2 class="title">Featured Products</h2>
+            <div class="row">
+                {% for product in products %}
+                <div class="col-4">
+                    <img src="{{product.imageURL}}">
+                    <h4>{{product.name}}</h4>
+                    
+                    <p>Shs {{product.price}}</p>
+                    <a href="{% url 'productDetails' product.id %}" class="product-btn">View</a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- offer -->
+        <div class="offer">
+            <div class="small-container">
+                <div class="row">
+                    <div class="col-2">
+                        <img src="images/IMG_0120-ed.png" class="offer-img" style="padding: 10px;">
+                    </div>
+                    <div class="col-2">
+                        <p>Take your Test buds for a spin!</p>
+                        <h1>Best Tasting Cookies</h1>
+                        <small>
+                            Tiny Bites of Happiness.
+                            <br>
+                            Sweetening Life's Milestone. One Bite at a time
+                        </small><br>
+                        <a href="/contact" class="btn">Contact to Order &#8594;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-container small-container">
+            <h2 class="title">Our Timeless Classic</h2>
+            <div class="about">
+                <div class="about-content">
+                    <h2>The timeless classic “The Queen cake’</h2>
+                    <p style="font-size: 16px;">
+                        Cupcakes are muffins that believed in miracles.
+                        <br>
+                        For over 20 years, our Queen Cake has reigned supreme as our oldest and most beloved recipe. This majestic masterpiece has been a cornerstone of our bakery since its inception, and its enduring popularity is a testament to its timeless charm.
+                        <br>
+                        <br>
+                        Moist and fluffy, with a subtle hint of sweetness, our Queen Cake is a masterclass in traditional baking. Made with the finest ingredients and a dash of love, this cake is a true classic that never goes out of style.
+                    </p>
+                    <br>
+                    <em>Happiness is only a Queen Cake Away</em>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/thebreadandcakeshop/"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/breadandcake_ug"><i class="fab fa-x"></i></a>
+                        <a href="https://www.tiktok.com/@thebreadandcakeshop?lang=en"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://www.facebook.com/share/XZFy1YeDp4gzvqha/"><i class="fab fa-facebook"></i></a>
+                    </div>
+                    <a href="/contact" class="btn">Contact Us</a>
+                </div>
+                <div class="about-image">
+                    <img src="images/IMG_0038.png" style="background-color: #ece2e2;">
+                </div>
+            </div>
+        </div>
+
+        <!--
+
+        <div class="testimonial">
+            <div class="small-container">
+                <div class="row">
+                    <div class="col-3">
+                        <i class="fa fa-quote-left"></i>
+                        <p>
+                           Impus is simply dummy text of the printing and typesetting industry.
+                           Lorem Impus has been the industry's standard dummy text ever
+                        </p>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <img src="images/user-1.png">
+                        <h3>JOHN from TMT</h3>
+                    </div>
+                    <div class="col-3">
+                        <i class="fa fa-quote-left"></i>
+                        <p>
+                           Impus is simply dummy text of the printing and typesetting industry.
+                           Lorem Impus has been the industry's standard dummy text ever
+                        </p>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <img src="images/user-1.png">
+                        <h3>JOHN from TMT</h3>
+                    </div>
+                    <div class="col-3">
+                        <i class="fa fa-quote-left"></i>
+                        <p>
+                           Impus is simply dummy text of the printing and typesetting industry.
+                           Lorem Impus has been the industry's standard dummy text ever
+                        </p>
+                        <div class="rating">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <img src="images/user-1.png">
+                        <h3>JOHN from TMT</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        -->
+
+        <!-- brands 
+        <div class="brands">
+            <div class="small-container">
+                <div class="row">
+                    <div class="col-5">
+                        <img src="images/logo-coca-cola.png">
+                    </div>
+                    <div class="col-5">
+                        <img src="images/logo-coca-cola.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+        -->
+
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col-1">
+                        <h3>Easy Bakers and Confectioners ltd</h3>
+                        <div class="app-logo">
+                            <img src="images/logo.png">
+                        </div>
+                    </div>
+                    <div class="footer-col-2">
+                        <img src="images/IMG_0042.png">
+                        <p style="color: #c8c8c8;">
+                            Take your taste buds for a spin. Freshly baked every morning.
+                        </p>
+                    </div>
+                    <div class="footer-col-3">
+                        <h3>Contacts</h3>
+                        <ul>
+                            <div style="display: flex; justify-content: center;">
+                                <i class="fas fa-map-marker-alt" style="margin-right: 5px;"></i>
+                                <p style="color: #c8c8c8;">Kampala, old port-bell road</p>
+                            </div>
+                            <div style="display: flex; justify-content: center;">
+                                <i class="fas fa-phone" style="margin-right: 5px;"></i>
+                                <p style="color: #c8c8c8;">+256759443880</p>
+                            </div>
+                            <div style="display: flex; justify-content: center;">
+                                <i class="fas fa-phone" style="margin-right: 5px;"></i>
+                                <p style="color: #c8c8c8;">+256772505622</p>
+                            </div>
+                            <div style="display: flex; justify-content: center;">
+                                <i class="fas fa-envelope" style="margin-right: 5px;"></i>
+                                <p style="color: #c8c8c8;">easybakers222@gmail.com</p>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="footer-col-4">
+                        <h3>Follow us on</h3>
+                        <ul>
+                            <a href="https://www.instagram.com/thebreadandcakeshop/"><i class="fab fa-instagram" style="color: #c8c8c8;"></i></a>
+                            <a href="https://x.com/breadandcake_ug"><i class="fab fa-x" style="color: #c8c8c8;"></i></a>
+                            <a href="https://www.tiktok.com/@thebreadandcakeshop?lang=en"><i class="fab fa-tiktok" style="color: #c8c8c8;"></i></a>
+                            <a href="https://www.facebook.com/share/XZFy1YeDp4gzvqha/"><i class="fab fa-facebook" style="color: #c8c8c8;"></i></a>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+
+                <p class="copyright">@Vellfar 2024</p>
+            </div>
+        </div>
+        <script src="https://kit.fontawesome.com/f8a9fd1092.js" crossorigin="anonymous"></script>
+
+        <script>
+            var MenuItems = document.getElementById("MenuItems");
+
+            MenuItems.style.maxHeight = "0px";
+
+            function menutoggle(){
+                if(MenuItems.style.maxHeight == "0px")
+                    {
+                        MenuItems.style.maxHeight = "200px";
+                    }
+                else
+                    {
+                        MenuItems.style.maxHeight = "0px";
+                    }
+            }
+        </script>
+    </body>
+</html>
+{% endblock content %}

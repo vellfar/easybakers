@@ -1,0 +1,174 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF -8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title> Contact | Easy Bakers | The Bread and Cake Shop</title>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link href="https://fonts.googleapis.com/css2?
+        family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+
+        <!-- Header -->
+        <div class="header">
+            <div class="navbar">
+                <div class="logo" style="display: flex; justify-content: center; align-items: center;">
+                    <img src="/images/logo.png" width="40px" height="40px" style="margin: 0 2px;">
+                    <h2 style="color: #555;">Easy Bakers and Confectioners LTD</h2>
+                </div>
+                <nav>
+                    <ul id="MenuItems">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/products">Products</a></li>
+                        <li><a href="/about">About</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <i class="fa-solid fa-bars" onclick="menutoggle()"></i>
+            </div>
+        </div>
+
+        <div class="contact-container">
+            <h1>Connect with us!</h1>
+            <p>
+                We would love to attend to your orders and respond to your inquiries.
+                Feel free to get in touch with us.
+            </p>
+            <div class="contact-box">
+                <div class="contact-left">
+                    <h3>Send your order or request!</h3>
+                    <form id="uploadForm" action="{% url 'contact' %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="id_name">Name</label>
+                                <input type="text" name="name" id="id_name" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="id_phone">Phone No</label>
+                                <input type="text" name="phone" id="id_phone" required>
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="id_email">Email</label>
+                                <input type="email" name="email" id="id_email" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="id_subject">Subject</label>
+                                <input type="text" name="subject" id="id_subject" required>
+                            </div>
+                        </div>
+                    
+                        <label for="id_message" style="display: block; margin-bottom: 5px; font-weight: bold; color: #333;">Message</label>
+                        <textarea name="message" id="id_message" rows="7" placeholder="Your Message" required></textarea>
+                    
+                        <button type="submit" class="btn" style="width: 200px; border: none; outline: none; box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.1);">Send</button>
+                    </form>
+                    
+                </div>
+                <div class="contact-right">
+                    <h3>Reach Us!</h3>
+
+                    <table>
+                        <tr>
+                            <td><a href="mailto:easybakers222@gmail.com" style="color: #fff;"><i class="fas fa-envelope"></i></a></td>
+                            <td><a href="mailto:easybakers222@gmail.com" style="color: #fff;">easybakers222@gmail.com</a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="tel:+256772505622" style="color: #fff;"><i class="fas fa-phone"></i></a></td>
+                            <td><a href="tel:+256772505622" style="color: #fff;">+256772505622</a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="tel:+256759443880" style="color: #fff;"><i class="fas fa-phone"></i></a></td>
+                            <td><a href="tel:+256759443880" style="color: #fff;">+256759443880</a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="tel:+256756122224" style="color: #fff;"><i class="fas fa-phone"></i></a></td>
+                            <td><a href="tel:+256756122224" style="color: #fff;">+256756122224</a></td>
+                        </tr>                         
+                        <tr>
+                            <td><i class="fas fa-map-marker-alt"></i></td>
+                            <td>kampala, Old port bell road</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+       
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col-1">
+                        <h3>Easy Bakers and Confectioners ltd</h3>
+                        <div class="app-logo">
+                            <img src="/images/logo.png">
+                        </div>
+                    </div>
+                    <div class="footer-col-2">
+                        <img src="/images/IMG_0042.png">
+                        <p style="color: #c8c8c8;">
+                            Take your taste buds for a spin. Freshly baked every morning.
+                        </p>
+                    </div>
+                    <div class="footer-col-3">
+                        <h3>Contacts</h3>
+                        <ul>
+                            <div style="display: flex; justify-content: center;">
+                                <i class="fas fa-map-marker-alt" style="margin-right: 5px;"></i>
+                                <p style="color: #c8c8c8;">Kampala, old port-bell road</p>
+                            </div>
+                            <div style="display: flex; justify-content: center;">
+                                <i class="fas fa-phone" style="margin-right: 5px;"></i>
+                                <p style="color: #c8c8c8;">+256759443880</p>
+                            </div>
+                            <div style="display: flex; justify-content: center;">
+                                <i class="fas fa-phone" style="margin-right: 5px;"></i>
+                                <p style="color: #c8c8c8;">+256772505622</p>
+                            </div>
+                            <div style="display: flex; justify-content: center;">
+                                <i class="fas fa-envelope" style="margin-right: 5px;"></i>
+                                <p style="color: #c8c8c8;">easybakers222@gmail.com</p>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="footer-col-4">
+                        <h3>Follow us on</h3>
+                        <ul>
+                            <a href=""><i class="fab fa-instagram" style="color: #c8c8c8;"></i></a>
+                            <a href=""><i class="fab fa-x" style="color: #c8c8c8;"></i></a>
+                            <a href=""><i class="fab fa-tiktok" style="color: #c8c8c8;"></i></a>
+                            <a href=""><i class="fab fa-facebook" style="color: #c8c8c8;"></i></a>
+                        </ul>
+                    </div>
+                </div>
+                <hr>
+
+                <p class="copyright">@Vellfar 2024</p>
+            </div>
+        </div>
+        <script src="https://kit.fontawesome.com/f8a9fd1092.js" crossorigin="anonymous"></script>
+
+        <script>
+            var MenuItems = document.getElementById("MenuItems");
+
+            MenuItems.style.maxHeight = "0px";
+
+            function menutoggle(){
+                if(MenuItems.style.maxHeight == "0px")
+                    {
+                        MenuItems.style.maxHeight = "200px";
+                    }
+                else
+                    {
+                        MenuItems.style.maxHeight = "0px";
+                    }
+            }
+        </script>
+    </body>
+</html>
+{% endblock content %}
